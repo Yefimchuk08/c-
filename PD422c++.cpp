@@ -56,6 +56,11 @@ int main()
 	//cin >> znuzhka;
 	//cout << "All price: " << ((price * count) / 100) * znuzhka << endl;
 
+	//int sell;
+	//cout << "Enter sum of sells: ";
+	//cin >> sell;
+	//cout << "All money ($): " << ((sell / 100) * 15) + 100 << endl;
+	
 	//int gb, v;
 	//cout << "Enter gb: ";
 	//cin >> gb;
