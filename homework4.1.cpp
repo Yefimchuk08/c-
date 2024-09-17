@@ -6,6 +6,136 @@ using namespace std;
 
 int main()
 {
+	    //char ch;
+    //cout << "[1] - Horizontal; \n[2] - Vertical;\nWhat is your choice: ";
+    //int choice, secondchoice;
+    //cin >> choice;
+
+    //switch (choice)
+    //{
+    //case 1:
+    //    cout << "[1] - Fast; \n[2] - Medium; \n[3] - Slow; \nWhat is your choice: ";
+    //    cin >> secondchoice;
+    //    cout << "Enter symbol: ";
+    //    cin >> ch;
+
+    //    switch (secondchoice)
+    //    {
+    //    case 1:
+    //        for (int i = 0; i < 20; i++) {
+    //            cout << ch;
+    //        }
+    //        cout << endl;
+    //        break;
+    //    case 2:
+    //        for (int i = 0; i < 20; i++) {
+    //            cout << ch;
+    //            Sleep(150); // Ð—Ð°Ñ‚Ñ€Ð¸Ð¼ÐºÐ° 150 Ð¼Ñ
+    //        }
+    //        cout << endl;
+    //        break;
+    //    case 3:
+    //        for (int i = 0; i < 20; i++) {
+    //            cout << ch;
+    //            Sleep(300); // Ð—Ð°Ñ‚Ñ€Ð¸Ð¼ÐºÐ° 300 Ð¼Ñ
+    //        }
+    //        cout << endl;
+    //        break;
+    //    default:
+    //        cout << "Invalid choice!" << endl;
+    //        break;
+    //    }
+    //    break;
+
+    //case 2:
+    //    cout << "[1] - Fast; \n[2] - Medium; \n[3] - Slow; \nWhat is your choice: ";
+    //    cin >> secondchoice;
+    //    cout << "Enter symbol: ";
+    //    cin >> ch;
+
+    //    switch (secondchoice)
+    //    {
+    //    case 1:
+    //        for (int i = 0; i < 20; i++) {
+    //            cout << ch << endl;
+    //        }
+    //        break;
+    //    case 2:
+    //        for (int i = 0; i < 20; i++) {
+    //            cout << ch << endl;
+    //            Sleep(150); // Ð—Ð°Ñ‚Ñ€Ð¸Ð¼ÐºÐ° 150 Ð¼Ñ
+    //        }
+    //        break;
+    //    case 3:
+    //        for (int i = 0; i < 20; i++) {
+    //            cout << ch << endl;
+    //            Sleep(300); // Ð—Ð°Ñ‚Ñ€Ð¸Ð¼ÐºÐ° 300 Ð¼Ñ
+    //        }
+    //        break;
+    //    default:
+    //        cout << "Invalid choice!" << endl;
+    //        break;
+    //    }
+    //    break;
+
+    //default:
+    //    cout << "Invalid main choice!" << endl;
+    //    break;
+    //}
+
+    //cout << "---------------------Cubes-----------------------" << endl;
+    //srand(time(0));
+
+    //int userScore = 0;
+    //int computerScore = 0;
+    //int round = 1;
+
+    //cout << "Welcome to the Dice Game!\n";
+    //cout << "You and the computer will each roll two dice for 3 rounds.\n";
+    //cout << "The player with the highest total score wins!\n\n";
+
+    //// Ð“Ñ€Ð° Ð½Ð° 3 Ñ€Ð°ÑƒÐ½Ð´Ð¸
+    //while (round <= 3) {
+    //    cout << "--------- Round " << round << " ---------\n";
+
+    //    cout << "Your turn! Press Enter to roll the dice...";
+    //    cin.ignore(); 
+    //    int userDice1 = rand() % 6 + 1; 
+    //    int userDice2 = rand() % 6 + 1; 
+    //    int userRoll = userDice1 + userDice2; 
+    //    cout << "You rolled a total of: " << userRoll << " (" << userDice1 << " + " << userDice2 << ")!\n";
+    //    userScore += userRoll;
+
+  
+    //    cout << "Computer's turn! Press Enter to continue...";
+    //    cin.ignore();
+    //    int computerDice1 = rand() % 6 + 1;
+    //    int computerDice2 = rand() % 6 + 1;
+    //    int computerRoll = computerDice1 + computerDice2;
+    //    cout << "Computer rolled a total of: " << computerRoll << " (" << computerDice1 << " + " << computerDice2 << ")!\n";
+    //    computerScore += computerRoll;
+
+    //    cout << "\nCurrent Scores:\n";
+    //    cout << "Your score: " << userScore << "\n";
+    //    cout << "Computer's score: " << computerScore << "\n";
+    //    cout << "-----------------------------\n\n";
+
+    //    round++;
+    //}
+    //cout << "Final Scores:\n";
+    //cout << "Your total score: " << userScore << "\n";
+    //cout << "Computer's total score: " << computerScore << "\n";
+
+    //if (userScore > computerScore) {
+    //    cout << "\nCongratulations! You won the game!\n";
+    //}
+    //else if (userScore < computerScore) {
+    //    cout << "\nSorry! The computer won the game.\n";
+    //}
+    //else {
+    //    cout << "\nIt's a tie! Both players have the same score.\n";
+    //}
+	
 	//srand(time(NULL));
 
 	//const int NUM_COUNT = 10;
@@ -93,11 +223,11 @@ int main()
 
 
     //int N;
-    //cout << "Ââåä³òü ê³ëüê³ñòü åëåìåíò³â ìàñèâó: ";
+    //cout << "Ã‚Ã¢Ã¥Ã¤Â³Ã²Ã¼ ÃªÂ³Ã«Ã¼ÃªÂ³Ã±Ã²Ã¼ Ã¥Ã«Ã¥Ã¬Ã¥Ã­Ã²Â³Ã¢ Ã¬Ã Ã±Ã¨Ã¢Ã³: ";
     //cin >> N;
 
     //double array[100];
-    //cout << "Ââåä³òü åëåìåíòè ìàñèâó:";
+    //cout << "Ã‚Ã¢Ã¥Ã¤Â³Ã²Ã¼ Ã¥Ã«Ã¥Ã¬Ã¥Ã­Ã²Ã¨ Ã¬Ã Ã±Ã¨Ã¢Ã³:";
     //for (int i = 0; i < N; ++i) {
     //    cin >> array[i];
     //}
@@ -140,14 +270,14 @@ int main()
     //        sumBetweenNegatives += array[i];
     //    }
     //}
-    //cout << "Ñóìà â³ä'ºìíèõ åëåìåíò³â: " << sumNegative << endl;
-    //cout << "Äîáóòîê åëåìåíò³â ì³æ ì³í³ìàëüíèì ³ ìàêñèìàëüíèì åëåìåíòàìè: " << productBetweenMinMax << endl;
-    //cout << "Äîáóòîê åëåìåíò³â ç ïàðíèìè íîìåðàìè: " << productEvenIndex << endl;
+    //cout << "Ã‘Ã³Ã¬Ã  Ã¢Â³Ã¤'ÂºÃ¬Ã­Ã¨Ãµ Ã¥Ã«Ã¥Ã¬Ã¥Ã­Ã²Â³Ã¢: " << sumNegative << endl;
+    //cout << "Ã„Ã®Ã¡Ã³Ã²Ã®Ãª Ã¥Ã«Ã¥Ã¬Ã¥Ã­Ã²Â³Ã¢ Ã¬Â³Ã¦ Ã¬Â³Ã­Â³Ã¬Ã Ã«Ã¼Ã­Ã¨Ã¬ Â³ Ã¬Ã ÃªÃ±Ã¨Ã¬Ã Ã«Ã¼Ã­Ã¨Ã¬ Ã¥Ã«Ã¥Ã¬Ã¥Ã­Ã²Ã Ã¬Ã¨: " << productBetweenMinMax << endl;
+    //cout << "Ã„Ã®Ã¡Ã³Ã²Ã®Ãª Ã¥Ã«Ã¥Ã¬Ã¥Ã­Ã²Â³Ã¢ Ã§ Ã¯Ã Ã°Ã­Ã¨Ã¬Ã¨ Ã­Ã®Ã¬Ã¥Ã°Ã Ã¬Ã¨: " << productEvenIndex << endl;
     //if (firstNegativeIndex != -1 && lastNegativeIndex != -1) {
-    //    cout << "Ñóìà åëåìåíò³â ì³æ ïåðøèì ³ îñòàíí³ì â³ä'ºìíèìè åëåìåíòàìè: " << sumBetweenNegatives << endl;
+    //    cout << "Ã‘Ã³Ã¬Ã  Ã¥Ã«Ã¥Ã¬Ã¥Ã­Ã²Â³Ã¢ Ã¬Â³Ã¦ Ã¯Ã¥Ã°Ã¸Ã¨Ã¬ Â³ Ã®Ã±Ã²Ã Ã­Ã­Â³Ã¬ Ã¢Â³Ã¤'ÂºÃ¬Ã­Ã¨Ã¬Ã¨ Ã¥Ã«Ã¥Ã¬Ã¥Ã­Ã²Ã Ã¬Ã¨: " << sumBetweenNegatives << endl;
     //}
     //else {
-    //    cout << "Íåìàº â³ä'ºìíèõ åëåìåíò³â àáî âîíè çàíàäòî áëèçüêî îäèí äî îäíîãî äëÿ îá÷èñëåííÿ ñóìè.\n";
+    //    cout << "ÃÃ¥Ã¬Ã Âº Ã¢Â³Ã¤'ÂºÃ¬Ã­Ã¨Ãµ Ã¥Ã«Ã¥Ã¬Ã¥Ã­Ã²Â³Ã¢ Ã Ã¡Ã® Ã¢Ã®Ã­Ã¨ Ã§Ã Ã­Ã Ã¤Ã²Ã® Ã¡Ã«Ã¨Ã§Ã¼ÃªÃ® Ã®Ã¤Ã¨Ã­ Ã¤Ã® Ã®Ã¤Ã­Ã®Ã£Ã® Ã¤Ã«Ã¿ Ã®Ã¡Ã·Ã¨Ã±Ã«Ã¥Ã­Ã­Ã¿ Ã±Ã³Ã¬Ã¨.\n";
     //}
 
 }
