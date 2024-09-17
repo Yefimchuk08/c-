@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
-	    //char ch;
+     //char ch;
     //cout << "[1] - Horizontal; \n[2] - Vertical;\nWhat is your choice: ";
     //int choice, secondchoice;
     //cin >> choice;
