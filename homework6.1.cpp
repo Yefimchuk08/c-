@@ -105,21 +105,19 @@ using namespace std;
 //	return -1;
 //}
 
-int binaryToDecimal(string binary) {
-	int decimal = 0;  // Змінна для зберігання результату
-	int power = 0;    // Степінь двійки, яку ми використовуємо
+//int binaryToDecimal(string binary) {
+//	int decimal = 0;  
+//	int power = 0;    
 
-	// Проходимо по двійковому числу з права наліво
-	for (int i = binary.length() - 1; i >= 0; i--) {
-		if (binary[i] == '1') {
-			// Якщо цифра '1', додаємо відповідне значення до десяткового числа
-			decimal += pow(2, power);
-		}
-		power++;  // Збільшуємо степінь двійки
-	}
+//	for (int i = binary.length() - 1; i >= 0; i--) {
+//		if (binary[i] == '1') {
+//			decimal += pow(2, power);
+//		}
+//		power++;
+//	}
 
-	return decimal;
-}
+//	return decimal;
+//}
 
 
 
@@ -175,17 +173,17 @@ int main()
 	//int result = binarySearch(arr, size, target);
 
 	//if (result != -1)
-	//	cout << "Елемент знайдено на індексі: " << result << endl;
+	//	cout << "Error element in index: " << result << endl;
 	//else
-	//	cout << "Елемент не знайдено." << endl;
+	//	cout << "Error element." << endl;
 
 	//void 8
 	//string binary;
 
-	//cout << "Введіть двійкове число: ";
+	//cout << "Enter value in two system: ";
 	//cin >> binary;
 
 	//int decimal = binaryToDecimal(binary);
-	//cout << "Десяткове значення: " << decimal << endl;
+	//cout << "Tns value: " << decimal << endl;
 
 }
