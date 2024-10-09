@@ -180,6 +180,87 @@ using namespace std;
 //    }
 //}
 
+//part 2 
+
+struct Book {
+    string title;
+    string author;
+    string publisher;
+    string genre;
+
+    void print() const {
+        cout << "Title: " << title << "\n"
+            << "Author: " << author << "\n"
+            << "Publisher: " << publisher << "\n"
+            << "Genre: " << genre << "\n"
+            << "--------------------------" << endl;
+    }
+};
+
+void editBook(Book& book) {
+    cout << "Editing book: " << book.title << "\n";
+    cout << "Enter new title: ";
+    getline(cin, book.title);
+    cout << "Enter new author: ";
+    getline(cin, book.author);
+    cout << "Enter new publisher: ";
+    getline(cin, book.publisher);
+    cout << "Enter new genre: ";
+    getline(cin, book.genre);
+}
+
+void searchByAuthor(const Book books[], int size, const string& author) {
+    bool found = false;
+    for (int i = 0; i < size; ++i) {
+        if (books[i].author == author) {
+            books[i].print();
+            found = true;
+        }
+    }
+    if (!found) {
+        cout << "No books found by author " << author << ".\n";
+    }
+}
+
+void searchByTitle(const Book books[], int size, const string& title) {
+    bool found = false;
+    for (int i = 0; i < size; ++i) {
+        if (books[i].title == title) {
+            books[i].print();
+            found = true;
+        }
+    }
+    if (!found) {
+        cout << "No book found with title " << title << ".\n";
+    }
+}
+
+void printAllBooks(const Book books[], int size) {
+    for (int i = 0; i < size; ++i) {
+        books[i].print();
+    }
+}
+
+void sortByTitle(Book books[], int size) {
+    sort(books, books + size, [](const Book& a, const Book& b) {
+        return a.title < b.title;
+        });
+}
+
+void sortByAuthor(Book books[], int size) {
+    sort(books, books + size, [](const Book& a, const Book& b) {
+        return a.author < b.author;
+        });
+}
+
+void sortByPublisher(Book books[], int size) {
+    sort(books, books + size, [](const Book& a, const Book& b) {
+        return a.publisher < b.publisher;
+        });
+}
+
+
+
 int main()
 {
     //task 1
@@ -199,4 +280,89 @@ int main()
 
     // task 2
     //Menu();
+
+    //part 2
+
+    const int SIZE = 10;
+    Book library[SIZE] = {
+        {"Harry Potter", "J.K. Rowling", "Bloomsbury", "Fantasy"},
+        {"1984", "George Orwell", "Signet Classics", "Dystopia"},
+        {"The Master and Margarita", "Mikhail Bulgakov", "AST", "Classic"},
+        {"The Little Prince", "Antoine de Saint-Exupéry", "Gallimard", "Fantasy"},
+        {"Crime and Punishment", "Fyodor Dostoevsky", "AST", "Classic"},
+        {"Les Misérables", "Victor Hugo", "AST", "Historical Novel"},
+        {"Roadside Picnic", "Arkady and Boris Strugatsky", "AST", "Science Fiction"},
+        {"The Great Gatsby", "F. Scott Fitzgerald", "Charles Scribner", "Classic"},
+        {"One Hundred Years of Solitude", "Gabriel García Márquez", "Sudamericana", "Magical Realism"},
+        {"War and Peace", "Leo Tolstoy", "AST", "Historical Novel"}
+    };
+
+    int choice;
+    do {
+        cout << "\nMenu:\n"
+            << "1. Print all books\n"
+            << "2. Search book by author\n"
+            << "3. Search book by title\n"
+            << "4. Edit book\n"
+            << "5. Sort by book title\n"
+            << "6. Sort by author\n"
+            << "7. Sort by publisher\n"
+            << "0. Exit\n"
+            << "Your choice: ";
+        cin >> choice;
+        cin.ignore();
+
+        switch (choice) {
+        case 1:
+            printAllBooks(library, SIZE);
+            break;
+        case 2: {
+            string author;
+            cout << "Enter author: ";
+            getline(cin, author);
+            searchByAuthor(library, SIZE, author);
+            break;
+        }
+        case 3: {
+            string title;
+            cout << "Enter book title: ";
+            getline(cin, title);
+            searchByTitle(library, SIZE, title);
+            break;
+        }
+        case 4: {
+            int index;
+            cout << "Enter book index to edit (0-9): ";
+            cin >> index;
+            cin.ignore();
+            if (index >= 0 && index < SIZE) {
+                editBook(library[index]);
+            }
+            else {
+                cout << "Invalid index.\n";
+            }
+            break;
+        }
+        case 5:
+            sortByTitle(library, SIZE);
+            cout << "Books sorted by title.\n";
+            break;
+        case 6:
+            sortByAuthor(library, SIZE);
+            cout << "Books sorted by author.\n";
+            break;
+        case 7:
+            sortByPublisher(library, SIZE);
+            cout << "Books sorted by publisher.\n";
+            break;
+        case 0:
+            cout << "Exiting the program.\n";
+            break;
+        default:
+            cout << "Invalid choice. Please try again.\n";
+            break;
+        }
+
+    } while (choice != 0);
+
 }
