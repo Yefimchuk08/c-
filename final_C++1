@@ -1,0 +1,186 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <fstream>
+using namespace std;
+
+struct Movie {
+	string title;
+	string director;
+	string genre;
+	int year;
+	double rating;
+};
+
+
+
+void showMovie(Movie movie)
+{
+	cout << endl;
+	cout << "Title: " << movie.title << endl;
+	cout << "Director: " << movie.director << endl;
+	cout << "Genre: " << movie.genre << endl;
+
+	cout << "Year: " << movie.year << endl;
+	cout << "Rating: " << movie.rating << endl;
+}
+
+void FillBook(Movie &movie)
+{
+	cout << "Enter title: ";
+	cin.ignore();
+	getline(cin, movie.title);
+	cout << "Enter director: ";
+	getline(cin, movie.director);
+	cout << "Enter genre: ";
+	getline(cin, movie.genre);
+	cout << "Enter year: ";
+	cin >> movie.year;
+	cout << "Enter rating: ";
+	cin >> movie.rating;
+}
+
+void LoadFromFile(vector<Movie>&movies, const string &filename)
+{
+	ifstream file(filename);
+	if (file.is_open())
+	{
+		movies.clear();
+		string line;
+		while(getline(file, line))
+		{
+			Movie movie;
+			rsize_t pos = 0;
+
+			pos = line.find(",");
+			movie.title = line.substr(0, pos);
+			line.erase(0, pos + 1);
+
+			pos = line.find(",");
+			movie.director = line.substr(0, pos);
+			line.erase(0, pos + 1);
+
+			pos = line.find(",");
+			movie.genre = line.substr(0, pos);
+			line.erase(0, pos + 1);
+
+			pos = line.find(",");
+			movie.year = stoi(line.substr(0, pos));
+			line.erase(0, pos + 1);
+
+			pos = line.find(",");
+			movie.rating = stoi(line.substr(0, pos));
+			line.erase(0, pos + 1);
+
+		}
+	}
+}
+
+void SaveToFile(const vector<Movie>& movies, const string& path)
+{
+	ofstream file(path, ios::app);
+	if (file.is_open()) {
+		for (auto movie : movies)
+		{
+			file << movie.title << ", " << movie.director << ", " << movie.genre << ", "  << movie.year << ", " << movie.rating << endl;
+		}
+		file.close();
+		cout << "Data save to file!" << endl;
+	}
+	else {
+		cout << "Invalid open file!!!!" << endl;
+	}
+}
+
+void ShowMovies(const vector<Movie>& movies)
+{
+	cout << "Movies: " << endl;
+	for (auto movie : movies)
+	{
+		showMovie(movie);
+	}
+	cout << "**********************************************************" << endl;
+}
+
+void searchbyDirector(const vector<Movie>& movies, string director)
+{
+	for (auto movie : movies)
+	{
+		if (movie.director == director)
+		{
+			showMovie(movie);
+		}
+	}
+}
+
+void searchByTitle(const vector<Movie>& movies, string title)
+{
+	for (auto movie : movies)
+	{
+		if (movie.title == title)
+		{
+			showMovie(movie);
+		}
+	}
+}
+
+void SubMenu(const vector<Movie> &movies)
+{
+	int choise1;
+	cout << "[1] - Show by director; \n[2] - Show by title;" << endl;
+	cout << "Whar ypur choise: ";
+	cin >> choise1;
+	string director, title;
+	switch(choise1)
+	{
+	case 1:
+		cout << "Enter author: ";
+		getline(cin, director);
+		searchbyDirector(movies, director);
+		break;
+	case 2:
+		cout << "Enter title: ";
+		getline(cin, title);
+		searchByTitle(movies, title);
+		break;
+	
+	default:
+		break;
+	}
+}
+
+void Menu()
+{
+	vector<Movie> movies;
+	string filename = "movies.txt";
+	Movie MyMovie;
+	int choise;
+	cout << "[1] - Show movie; \n[2] - Fill movie; \n[3] - Load from file and show; \n[4] - Search;" << endl;
+	cout << "Enter your choise: ";
+	cin >> choise;
+	switch (choise)
+	{
+	case 1:
+		ShowMovies(movies);
+		break;
+	case 2:
+		FillBook(MyMovie);
+		movies.push_back(MyMovie);
+		SaveToFile(movies, filename);
+		break;
+	case 3:
+		LoadFromFile(movies, filename);
+		ShowMovies(movies);
+		break;
+	case 4: 
+		SubMenu(movies);
+	default:
+		break;
+	}
+}
+
+int main()
+{
+	Menu();
+
+}
