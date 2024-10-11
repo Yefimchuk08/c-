@@ -8,6 +8,8 @@ struct Movie {
 	string title;
 	string director;
 	string genre;
+	string actors;
+	string A_Little_Description;
 	int year;
 	double rating;
 };
@@ -20,12 +22,13 @@ void showMovie(Movie movie)
 	cout << "Title: " << movie.title << endl;
 	cout << "Director: " << movie.director << endl;
 	cout << "Genre: " << movie.genre << endl;
-
+	cout << "Actors: " << movie.actors << endl;
+	cout << "Description: " << movie.A_Little_Description << endl;
 	cout << "Year: " << movie.year << endl;
 	cout << "Rating: " << movie.rating << endl;
 }
 
-void FillBook(Movie &movie)
+void FillBook(Movie& movie)
 {
 	cout << "Enter title: ";
 	cin.ignore();
@@ -34,20 +37,24 @@ void FillBook(Movie &movie)
 	getline(cin, movie.director);
 	cout << "Enter genre: ";
 	getline(cin, movie.genre);
+	cout << "Enter Actors: ";
+	getline(cin, movie.actors);
+	cout << "Enter a little description (WITHOUT (,): ";
+	getline(cin, movie.A_Little_Description);
 	cout << "Enter year: ";
 	cin >> movie.year;
 	cout << "Enter rating: ";
 	cin >> movie.rating;
 }
 
-void LoadFromFile(vector<Movie>&movies, const string &filename)
+void LoadFromFile(vector<Movie>& movies, const string& filename)
 {
 	ifstream file(filename);
 	if (file.is_open())
 	{
 		movies.clear();
 		string line;
-		while(getline(file, line))
+		while (getline(file, line))
 		{
 			Movie movie;
 			rsize_t pos = 0;
@@ -62,6 +69,14 @@ void LoadFromFile(vector<Movie>&movies, const string &filename)
 
 			pos = line.find(",");
 			movie.genre = line.substr(0, pos);
+			line.erase(0, pos + 1);
+
+			pos = line.find(",");
+			movie.actors = line.substr(0, pos);
+			line.erase(0, pos + 1);
+
+			pos = line.find(",");
+			movie.A_Little_Description = line.substr(0, pos);
 			line.erase(0, pos + 1);
 
 			pos = line.find(",");
@@ -82,7 +97,7 @@ void SaveToFile(const vector<Movie>& movies, const string& path)
 	if (file.is_open()) {
 		for (auto movie : movies)
 		{
-			file << movie.title << ", " << movie.director << ", " << movie.genre << ", "  << movie.year << ", " << movie.rating << endl;
+			file << movie.title << ", " << movie.director << ", " << movie.genre << ", " << movie.year << ", " << movie.rating << endl;
 		}
 		file.close();
 		cout << "Data save to file!" << endl;
@@ -124,14 +139,14 @@ void searchByTitle(const vector<Movie>& movies, string title)
 	}
 }
 
-void SubMenu(const vector<Movie> &movies)
+void SubMenu(const vector<Movie>& movies)
 {
 	int choise1;
 	cout << "[1] - Show by director; \n[2] - Show by title;" << endl;
 	cout << "Whar ypur choise: ";
 	cin >> choise1;
 	string director, title;
-	switch(choise1)
+	switch (choise1)
 	{
 	case 1:
 		cout << "Enter author: ";
@@ -143,7 +158,7 @@ void SubMenu(const vector<Movie> &movies)
 		getline(cin, title);
 		searchByTitle(movies, title);
 		break;
-	
+
 	default:
 		break;
 	}
@@ -155,27 +170,62 @@ void Menu()
 	string filename = "movies.txt";
 	Movie MyMovie;
 	int choise;
-	cout << "[1] - Show movie; \n[2] - Fill movie; \n[3] - Load from file and show; \n[4] - Search;" << endl;
-	cout << "Enter your choise: ";
-	cin >> choise;
-	switch (choise)
+	string title;
+	double rating;
+	while (true)
 	{
-	case 1:
-		ShowMovies(movies);
-		break;
-	case 2:
-		FillBook(MyMovie);
-		movies.push_back(MyMovie);
-		SaveToFile(movies, filename);
-		break;
-	case 3:
-		LoadFromFile(movies, filename);
-		ShowMovies(movies);
-		break;
-	case 4: 
-		SubMenu(movies);
-	default:
-		break;
+
+
+		cout << "[1] - Show movie; \n[2] - Fill movie; \n[3] - Load from file and show; \n[4] - Search; \n[5] - Give a rating; \n[6] - Exit;" << endl;
+		cout << "Enter your choise: ";
+		cin >> choise;
+		switch (choise)
+		{
+		case 1:
+			ShowMovies(movies);
+			break;
+		case 2:
+			FillBook(MyMovie);
+			movies.push_back(MyMovie);
+			SaveToFile(movies, filename);
+			break;
+		case 3:
+			LoadFromFile(movies, filename);
+			ShowMovies(movies);
+			break;
+		case 4:
+			SubMenu(movies);
+		case 5:
+			cout << "Enter title of movie: ";
+			cin.ignore();
+			getline(cin, title);
+			for (auto movie : movies)
+			{
+				if (movie.title == title)
+				{
+					cout << "Enter rating (0-10): ";
+					cin >> rating;
+					ofstream file_rating("rating.txt", ios::app);
+					if (file_rating.is_open())
+					{
+						file_rating << title << ": " << rating << endl;
+					}
+					else {
+						cout << "Invalid file open" << endl;
+					}
+					file_rating.close();
+				}
+				else {
+					cout << "We not have this film. You can add this film to library of movies" << endl;
+				}
+			}
+			break;
+		case 6:
+			cout << "Good Bye!!" << endl;
+			break;
+		default:
+			break;
+		}
 	}
 }
 
