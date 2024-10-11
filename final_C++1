@@ -97,7 +97,7 @@ void SaveToFile(const vector<Movie>& movies, const string& path)
 	if (file.is_open()) {
 		for (auto movie : movies)
 		{
-			file << movie.title << ", " << movie.director << ", " << movie.genre << ", " << movie.year << ", " << movie.rating << endl;
+			file << movie.title << ", " << movie.director << ", " << movie.genre << ", " << movie.actors << ", " << movie.A_Little_Description ", " << movie.year << ", " << movie.rating << endl;
 		}
 		file.close();
 		cout << "Data save to file!" << endl;
@@ -107,12 +107,14 @@ void SaveToFile(const vector<Movie>& movies, const string& path)
 	}
 }
 
-void ShowMovies(const vector<Movie>& movies)
+void ShowMovies(const string& filename)
 {
+	vector<Movie> movies;
+	LoadFromFile(movies, filename);
 	cout << "Movies: " << endl;
-	for (auto movie : movies)
+	for (const auto& movie : movies)
 	{
-		showMovie(movie);
+		showMovie(movie)
 	}
 	cout << "**********************************************************" << endl;
 }
@@ -171,56 +173,35 @@ void Menu()
 	Movie MyMovie;
 	int choise;
 	string title;
-	double rating;
+	double rating_for_program;
 	while (true)
 	{
 
-
-		cout << "[1] - Show movie; \n[2] - Fill movie; \n[3] - Load from file and show; \n[4] - Search; \n[5] - Give a rating; \n[6] - Exit;" << endl;
+		system("cls")
+		cout << "[1] - Fill movie; \n[2] - Load from file and show; \n[3] - Search; \n[4] - Give a rating; \n[5] - Exit;" << endl;
 		cout << "Enter your choise: ";
 		cin >> choise;
 		switch (choise)
 		{
 		case 1:
-			ShowMovies(movies);
-			break;
-		case 2:
 			FillBook(MyMovie);
 			movies.push_back(MyMovie);
 			SaveToFile(movies, filename);
 			break;
-		case 3:
+		case 2:
 			LoadFromFile(movies, filename);
 			ShowMovies(movies);
 			break;
-		case 4:
+		case 3:
 			SubMenu(movies);
-		case 5:
-			cout << "Enter title of movie: ";
-			cin.ignore();
-			getline(cin, title);
-			for (auto movie : movies)
-			{
-				if (movie.title == title)
-				{
-					cout << "Enter rating (0-10): ";
-					cin >> rating;
-					ofstream file_rating("rating.txt", ios::app);
-					if (file_rating.is_open())
-					{
-						file_rating << title << ": " << rating << endl;
-					}
-					else {
-						cout << "Invalid file open" << endl;
-					}
-					file_rating.close();
-				}
-				else {
-					cout << "We not have this film. You can add this film to library of movies" << endl;
-				}
-			}
+		case 4:
+			cout << "Enter rating for progrem: ";
+			cin >> rating_for_program;
+			cout << "Thank you for your rating!!!!" << endl;
+			ShowMovies(filename);
+			coit << "Rating for a program: " << rating_for_program << endl;
 			break;
-		case 6:
+		case 5:
 			cout << "Good Bye!!" << endl;
 			break;
 		default:
