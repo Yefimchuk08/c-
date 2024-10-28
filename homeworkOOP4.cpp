@@ -1,20 +1,108 @@
-// homeworkOOP4.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//#include <iostream>
+//#include <fstream>
+//#include <string>
 //
-
-#include <iostream>
-
-int main()
-{
-    std::cout << "Hello World!\n";
-}
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+//using namespace std;
+//
+//class Reservoir {
+//private:
+//    string name;
+//    string type;
+//    double width, length, maxDepth;
+//
+//public:
+//    Reservoir() : name(""), type(""), width(0), length(0), maxDepth(0) {}
+//    Reservoir(const string& n, const string& t, double w, double l, double d)
+//        : name(n), type(t), width(w), length(l), maxDepth(d) {}
+//
+//    double volume() const { return width * length * maxDepth; }
+//    double surfaceArea() const { return width * length; }
+//    bool isSameType(const Reservoir& other) const { return type == other.type; }
+//
+//    void saveToText(ofstream& file) const {
+//        file << name << " " << type << " " << width << " " << length << " " << maxDepth << "\n";
+//    }
+//
+//    void loadFromText(ifstream& file) {
+//        file >> name >> type >> width >> length >> maxDepth;
+//    }
+//
+//    void display() const {
+//        cout << "Name: " << name << ", Type: " << type
+//            << ", Width: " << width << ", Length: " << length
+//            << ", Max Depth: " << maxDepth
+//            << ", Volume: " << volume()
+//            << ", Surface Area: " << surfaceArea() << endl;
+//    }
+//};
+//
+//class ReservoirManager {
+//private:
+//    Reservoir* reservoirs;
+//    size_t size, capacity;
+//
+//    void resize() {
+//        capacity *= 2;
+//        Reservoir* newReservoirs = new Reservoir[capacity];
+//        for (size_t i = 0; i < size; ++i)
+//            newReservoirs[i] = reservoirs[i];
+//        delete[] reservoirs;
+//        reservoirs = newReservoirs;
+//    }
+//
+//public:
+//    ReservoirManager() : size(0), capacity(2) {
+//        reservoirs = new Reservoir[capacity];
+//    }
+//
+//    ~ReservoirManager() {
+//        delete[] reservoirs;
+//    }
+//
+//    void addReservoir(const Reservoir& reservoir) {
+//        if (size >= capacity)
+//            resize();
+//        reservoirs[size++] = reservoir;
+//    }
+//
+//    void removeReservoir(size_t index) {
+//        if (index < size) {
+//            for (size_t i = index; i < size - 1; ++i)
+//                reservoirs[i] = reservoirs[i + 1];
+//            --size;
+//        }
+//    }
+//
+//    void saveToFile(const string& filename) const {
+//        ofstream file(filename);
+//        for (size_t i = 0; i < size; ++i)
+//            reservoirs[i].saveToText(file);
+//    }
+//
+//    void loadFromFile(const string& filename) {
+//        ifstream file(filename);
+//        size = 0;
+//        while (file.peek() != EOF) {
+//            Reservoir res;
+//            res.loadFromText(file);
+//            addReservoir(res);
+//        }
+//    }
+//
+//    void displayReservoirs() const {
+//        for (size_t i = 0; i < size; ++i)
+//            reservoirs[i].display();
+//    }
+//};
+//
+//int main() {
+//    ReservoirManager manager;
+//    manager.addReservoir(Reservoir("Ocean", "Sea", 1000, 2000, 500));
+//    manager.addReservoir(Reservoir("Lake", "Pond", 100, 200, 50));
+//
+//    manager.saveToFile("reservoirs.txt");
+//
+//    ReservoirManager newManager;
+//    newManager.loadFromFile("reservoirs.txt");
+//    newManager.displayReservoirs();
+//}
