@@ -3,7 +3,7 @@
 
 using namespace std;
 
-//ÄÇ ÏÎ ÑÒÅÊÓ
+//STACK
 
 //class BracketChecker {
 //private:
@@ -61,7 +61,7 @@ using namespace std;
 //    }
 //};
 
-//ÄÇ ÏÎ ×ÅÐÇ²
+//Queue
 
 //TASK 1
 
@@ -97,17 +97,17 @@ using namespace std;
 //        int busArrivalTime = 0;
 //
 //        while (time < totalTime) {
-//            // Ïðèéîì ïàñàæèð³â
+//            // ÃÃ°Ã¨Ã©Ã®Ã¬ Ã¯Ã Ã±Ã Ã¦Ã¨Ã°Â³Ã¢
 //            if (time % passengerArrivalRate == 0) {
 //                passengers[totalPassengers++] = new Passenger(time);
 //            }
 //
-//            // Ïðè¿çä ìàðøðóòêè
+//            // ÃÃ°Ã¨Â¿Ã§Ã¤ Ã¬Ã Ã°Ã¸Ã°Ã³Ã²ÃªÃ¨
 //            if (time == busArrivalTime) {
-//                int freeSeats = 5; // Ê³ëüê³ñòü â³ëüíèõ ì³ñöü ó ìàðøðóòö³, çàäàíà âðó÷íó
+//                int freeSeats = 5; // ÃŠÂ³Ã«Ã¼ÃªÂ³Ã±Ã²Ã¼ Ã¢Â³Ã«Ã¼Ã­Ã¨Ãµ Ã¬Â³Ã±Ã¶Ã¼ Ã³ Ã¬Ã Ã°Ã¸Ã°Ã³Ã²Ã¶Â³, Ã§Ã Ã¤Ã Ã­Ã  Ã¢Ã°Ã³Ã·Ã­Ã³
 //                Bus bus(freeSeats);
 //
-//                // Çàáèðàºìî ïàñàæèð³â ç çóïèíêè
+//                // Ã‡Ã Ã¡Ã¨Ã°Ã ÂºÃ¬Ã® Ã¯Ã Ã±Ã Ã¦Ã¨Ã°Â³Ã¢ Ã§ Ã§Ã³Ã¯Ã¨Ã­ÃªÃ¨
 //                while (totalPassengers > 0 && bus.availableSeats > 0) {
 //                    Passenger* passenger = passengers[--totalPassengers];
 //                    totalWaitTime += time - passenger->arrivalTime;
@@ -115,7 +115,7 @@ using namespace std;
 //                    delete passenger;
 //                }
 //
-//                busArrivalTime += busArrivalRate; // ×àñ íàñòóïíîãî ïðè¿çäó ìàðøðóòêè
+//                busArrivalTime += busArrivalRate; // Ã—Ã Ã± Ã­Ã Ã±Ã²Ã³Ã¯Ã­Ã®Ã£Ã® Ã¯Ã°Ã¨Â¿Ã§Ã¤Ã³ Ã¬Ã Ã°Ã¸Ã°Ã³Ã²ÃªÃ¨
 //            }
 //
 //            if (totalPassengers > maxPassengers) {
@@ -159,7 +159,7 @@ using namespace std;
 //
 //    void addRequest(string user, int priority) {
 //        if (size < 100) {
-//            int currentTime = size * 10; // Ë³÷èëüíèê ÷àñó (ïðîñòî äëÿ â³äîáðàæåííÿ ³íòåðâàë³â)
+//            int currentTime = size * 10; // Ã‹Â³Ã·Ã¨Ã«Ã¼Ã­Ã¨Ãª Ã·Ã Ã±Ã³ (Ã¯Ã°Ã®Ã±Ã²Ã® Ã¤Ã«Ã¿ Ã¢Â³Ã¤Ã®Ã¡Ã°Ã Ã¦Ã¥Ã­Ã­Ã¿ Â³Ã­Ã²Ã¥Ã°Ã¢Ã Ã«Â³Ã¢)
 //            PrintRequest newRequest(user, priority, currentTime);
 //            int i = size;
 //            while (i > 0 && queue[i - 1].priority < priority) {
@@ -191,7 +191,7 @@ using namespace std;
 
 
 int main() {
-    //ÄÇ ÏÎ ÑÒÅÊÓ
+    //Ã„Ã‡ ÃÃŽ Ã‘Ã’Ã…ÃŠÃ“
 
     //string expression;
     //cout << "Enter a string to check: ";
@@ -200,7 +200,7 @@ int main() {
     //BracketChecker checker;
     //checker.checkBrackets(expression);
 
-    //ÄÇ ÏÎ ×ÅÐÇ²
+    //Ã„Ã‡ ÃÃŽ Ã—Ã…ÃÃ‡Â²
     //BusStop stop(10, false, 5, 15);
     //stop.simulate(100);
 
