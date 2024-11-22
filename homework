@@ -1,0 +1,89 @@
+#include <iostream>
+using namespace std;
+
+
+
+class Engine
+{
+public:
+ enum Type{Benz, Dizel, Electric};
+private:
+ int P;
+ Type type;
+public:
+ Engine() :P(0), type{ Benz } {}
+ Engine(int p, Type t) :P(p), type{ t } {}
+ void Show()const
+ {
+  cout << P << "horse power";
+  switch (type)
+  {
+  case Engine::Benz: cout << "Benzine";
+   break;
+  case Engine::Dizel: cout << "Dizel";
+   break;
+  case Engine::Electric:cout << "Electric";
+   break;
+  default:
+   break;
+  }
+ }
+};
+class Driver
+{
+ string name;
+ string surname;
+ int age;
+public:
+ Driver() :name{ "No name" }, surname{ "No surname" }, age{ 0 } {};
+ Driver(string n, string s, int a) :name{ n }, surname{ s }, age{ a } {};
+ void ShowInfo()const
+ {
+  cout << "Name: " << name << endl;
+  cout << "Surname: " << surname << endl;
+  cout << "Age: " << age << endl;
+ }
+
+};
+class Car
+{
+ string mark;
+ string model;
+ int year;
+ Engine engine;
+ Driver driver;
+public:
+ Car() :mark("No mark"), model("No model"), year(2000) {};
+ Car(string m, string md, int y, int p, Engine::Type t, string n, string s, int a):mark{m}, model{md},year{y}
+ {
+  engine = Engine(p, t);
+  driver = Driver(n, s, a);
+ }
+ void ShowInfo()const
+ {
+  cout << "Mark: " << mark << endl;
+  cout << "Model: " << model << endl;
+  cout << "Year: " << year << endl;
+  engine.Show();
+  driver.ShowInfo();
+
+ }
+ void Drive()const
+ {
+  cout << "Driving..." << endl;
+  driver.ShowInfo();
+ }
+};
+
+int main()
+{
+ Car cr1("BMW", "M5D90 Competition", 2024, 140, Engine::Dizel, "Dima", "Yefim", 20);
+ Car cr2("Infinity", "QX60", 2016, 100, Engine::Benz, "Dima", "Yefim", 20);
+ Car cr3("Renaylt", "Zoe", 2019, 100, Engine::Electric, "Dima", "Yefim", 20);
+ cr1.Drive();
+ cr1.ShowInfo();
+ cr2.Drive();
+ cr2.ShowInfo();
+ cr3.Drive();
+ cr3.ShowInfo();
+}
