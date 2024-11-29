@@ -5,12 +5,11 @@
 
 using namespace std;
 
-// Структура для управління запасами
 struct Elements {
-    vector<string> names = { "mozzarella", "salami", "pineapple", "tomato", "pepper", "chicken" };
-    vector<float> quantities = { 2000, 1000, 500, 800, 600, 700 };
+    vector<string> names = { "mozzarella", "salami", "pineapple", "tomato", "pepper", "chicken", "olives", "Mushrooms", "Parmesan", "Dor blue", "becon"};
+    vector<float> quantities = { 2000, 1000, 500, 800, 600, 700, 500, 1000, 600, 400, 600 };
 
-    // Віднімання інгредієнтів із запасів
+  
     bool DeductIngredients(const vector<string>& ingrNames, const vector<float>& ingrQuantities) {
         for (size_t i = 0; i < ingrNames.size(); i++) {
             const string& ingredient = ingrNames[i];
@@ -45,7 +44,7 @@ struct Elements {
         return true;
     }
 
-    // Показ запасів
+ 
     void ShowStock() const {
         cout << "Current stock:" << endl;
         for (size_t i = 0; i < names.size(); i++) {
@@ -54,7 +53,6 @@ struct Elements {
     }
 };
 
-// Клас Pizza
 class Pizza {
     string name;
     vector<string> ingredients;
@@ -83,7 +81,7 @@ public:
         return stock.DeductIngredients(ingredients, quantities);
     }
 
-    
+
     bool SaveToFile(const string& path) const {
         ofstream file(path, ios::app);
         if (file.is_open()) {
@@ -100,14 +98,14 @@ public:
         return false;
     }
 
-  
+
     static vector<Pizza> LoadFromFile(const string& path) {
         ifstream file(path);
         vector<Pizza> pizzas;
         if (file.is_open()) {
             string line;
             while (getline(file, line)) {
-                cout << line << endl; 
+                cout << line << endl;
             }
             file.close();
         }
